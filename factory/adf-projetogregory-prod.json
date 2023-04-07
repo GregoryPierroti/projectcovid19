@@ -1,0 +1,9 @@
+{
+	"name": "adf-projetogregory-prod",
+	"location": "eastus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "4f72c947-d601-491b-b767-55cd5641f05a",
+		"tenantId": "6e236e1a-bea0-42e5-8bae-db7cc1cd9198"
+	}
+}

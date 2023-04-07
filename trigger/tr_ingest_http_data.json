@@ -1,0 +1,17 @@
+{
+	"name": "tr_ingest_http_data",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2023-04-06T10:46:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}
