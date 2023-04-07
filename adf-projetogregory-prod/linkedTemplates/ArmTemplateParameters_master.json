@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-projetogregory-prod"
+		},
+		"ls_blob_connectionString": {
+			"value": "DefaultEndpointsProtocol=https;AccountName=adlsgregorycovid;"
+		},
+		"ls_data_lake_properties_typeProperties_url": {
+			"value": "https://adlsprojetogregoryprod.dfs.core.windows.net/"
+		},
+		"ls_db_azure_properties_typeProperties_connectionString_secretName": {
+			"value": "secret-db-azure"
+		},
+		"ls_http_github_properties_typeProperties_url": {
+			"value": "https://github.com"
+		},
+		"ls_key_vault_properties_typeProperties_baseUrl": {
+			"value": "https://akv-projetogregory-prod1.vault.azure.net/"
+		},
+		"tr_population_data_properties_typeProperties_scope": {
+			"value": "/subscriptions/8ce334f5-c44c-4bb4-9ad5-c5905c1945da/resourceGroups/rg_projeto_gregory/providers/Microsoft.Storage/storageAccounts/adlsgregorycovid"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

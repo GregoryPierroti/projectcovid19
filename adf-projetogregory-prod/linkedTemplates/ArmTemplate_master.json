@@ -1,0 +1,105 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adf-projetogregory-prod"
+		},
+		"ls_blob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_blob'",
+			"defaultValue": "DefaultEndpointsProtocol=https;AccountName=adlsgregorycovid;"
+		},
+		"ls_data_lake_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsprojetogregoryprod.dfs.core.windows.net/"
+		},
+		"ls_db_azure_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "secret-db-azure"
+		},
+		"ls_http_github_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://github.com"
+		},
+		"ls_key_vault_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://akv-projetogregory-prod1.vault.azure.net/"
+		},
+		"tr_population_data_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/8ce334f5-c44c-4bb4-9ad5-c5905c1945da/resourceGroups/rg_projeto_gregory/providers/Microsoft.Storage/storageAccounts/adlsgregorycovid"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adf-projetogregory-prod_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ls_blob_connectionString": {
+						"value": "[parameters('ls_blob_connectionString')]"
+					},
+					"ls_http_github_properties_typeProperties_url": {
+						"value": "[parameters('ls_http_github_properties_typeProperties_url')]"
+					},
+					"ls_key_vault_properties_typeProperties_baseUrl": {
+						"value": "[parameters('ls_key_vault_properties_typeProperties_baseUrl')]"
+					},
+					"ls_data_lake_properties_typeProperties_url": {
+						"value": "[parameters('ls_data_lake_properties_typeProperties_url')]"
+					},
+					"ls_db_azure_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('ls_db_azure_properties_typeProperties_connectionString_secretName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "adf-projetogregory-prod_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"tr_population_data_properties_typeProperties_scope": {
+						"value": "[parameters('tr_population_data_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adf-projetogregory-prod_ArmTemplate_0')]"
+			]
+		}
+	]
+}
