@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "HttpServerLocation",
-				"relativeUrl": "uc?id=16l-mfDFVGhZAyNnu0WhgyEf9tVPKh94FG9Bz0QzNdAM/edit?usp=sharing"
+				"relativeUrl": "/uc?id=16l-mfDFVGhZAyNnu0WhgyEf9tVPKh94FG9Bz0QzNdAM/edit?usp=sharing"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
