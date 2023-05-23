@@ -1,0 +1,22 @@
+{
+	"name": "ds_teste",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Http",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "uc?id=16l-mfDFVGhZAyNnu0WhgyEf9tVPKh94FG9Bz0QzNdAM/edit?usp=sharing"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
